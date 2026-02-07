@@ -14,7 +14,6 @@
   "dependencies": {
     "@turf/boolean-point-in-polygon": "^7.3.3",
     "@turf/turf": "^7.3.3",
-    "maplibre-gl": "^5.7.3",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",

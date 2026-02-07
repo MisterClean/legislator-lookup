@@ -1,4 +1,3 @@
-import maplibregl from "maplibre-gl";
 import type { MapAdapter, DistrictMapMountOptions } from "./types";
 import { bboxToBoundsLike, geometryBbox } from "../geojson/bbox";
 import { buildProtomapsStyleUrl } from "./protomaps-style";
@@ -18,6 +17,11 @@ export function createProtomapsAdapter(config: { style: "light" | "dark" }): Map
   return {
     provider: "protomaps",
     mountDistrictMap(options: DistrictMapMountOptions) {
+      const maplibregl = (globalThis as unknown as { maplibregl?: any }).maplibregl;
+      if (!maplibregl) {
+        throw new Error("MapLibre GL is not available (expected global 'maplibregl').");
+      }
+
       const id = Math.random().toString(36).slice(2);
       const sourceId = `district-${id}`;
       const fillId = `district-fill-${id}`;
