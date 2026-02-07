@@ -19,11 +19,19 @@ interface DistrictLayerConfig {
   numberPropertyAliases?: string[];
 }
 
+interface OfficeSlotConfig {
+  id: string;
+  label: string;
+  // If set, this slot is resolved based on the user's district for the configured layer.
+  districtLayer?: string;
+  // If set, this slot is statewide (no district-based lookup).
+  statewide?: boolean;
+}
+
 interface AppConfig {
   branding: {
     orgName: string;
     headerSubtitle: string;
-    electionLabel: string;
     footerBlurb: string;
     attributionName: string;
     attributionUrl: string;
@@ -48,6 +56,16 @@ interface AppConfig {
     provider: GeocodingProviderName;
     autocompleteLimit: number;
   };
+  officials: {
+    officeSlots: OfficeSlotConfig[];
+  };
+  maps: {
+    provider: "protomaps" | "mapbox" | "google-maps";
+    protomaps: {
+      // One of Protomaps hosted styles.
+      style: "light" | "dark";
+    };
+  };
   ui: {
     showDistrictShapes: boolean;
   };
@@ -56,16 +74,15 @@ interface AppConfig {
 // Headless configuration:
 // 1) Set the target state metadata and bounds below.
 // 2) Add district maps under frontend/data/district-maps/<state-slug>/...
-// 3) Map district layers here so endorsements can reference layer IDs.
+// 3) Map district layers here so officials can reference district layer IDs.
 const STATE_SLUG = "illinois";
 const DISTRICT_MAP_ROOT = `district-maps/${STATE_SLUG}`;
 
 export const APP_CONFIG: AppConfig = {
   branding: {
     orgName: "Civic Atlas Labs",
-    headerSubtitle: "An open-source ballot endorsement guide starter for any jurisdiction",
-    electionLabel: "Boilerplate Community Edition",
-    footerBlurb: "Fork, customize, and ship your own public voter guide",
+    headerSubtitle: "Find your elected officials in seconds",
+    footerBlurb: "Headless, self-hostable elected official lookup for civic orgs",
     attributionName: "Civic Atlas Labs",
     attributionUrl: "https://github.com/civic-atlas-labs",
   },
@@ -125,8 +142,24 @@ export const APP_CONFIG: AppConfig = {
     provider: "geocode-earth",
     autocompleteLimit: 8,
   },
+  officials: {
+    // These slots drive the UI and API response ordering.
+    officeSlots: [
+      { id: "us_senate_1", label: "US Senator", statewide: true },
+      { id: "us_senate_2", label: "US Senator", statewide: true },
+      { id: "us_house", label: "US Representative", districtLayer: "congressional" },
+      { id: "state_senate", label: "State Senator", districtLayer: "state_senate" },
+      { id: "state_house", label: "State Representative", districtLayer: "state_house" },
+      { id: "city_council", label: "City Council", districtLayer: "city_ward" },
+      { id: "county_commissioner", label: "County Commissioner", districtLayer: "cook_county" },
+    ],
+  },
+  maps: {
+    provider: "protomaps",
+    protomaps: { style: "light" },
+  },
   ui: {
-    // Defaults to false for a cleaner, more headless endorsement slate.
-    showDistrictShapes: false,
+    // Required for district map embeds on the landing page.
+    showDistrictShapes: true,
   },
 };

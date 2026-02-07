@@ -5,35 +5,40 @@ export interface Coordinates {
 
 export type Districts = Record<string, number | null>;
 
-export interface EndorsementDistrictRef {
+export interface DistrictRef {
   layer: string;
   number: number;
 }
 
-export interface Endorsement {
-  race: string;
-  candidate: string;
-  party: string;
-  district_layer?: string;
-  district_type?: string;
+export interface ElectedOfficial {
+  office_id: string;
+  office_label: string;
+  name: string | null;
+  party?: string;
+  url?: string;
+  phone?: string;
+  district?: DistrictRef | null;
+  // Used by the UI to pick a shape out of `district_shapes` for map rendering.
+  // Typically a district layer id (ex: "congressional") or "statewide".
+  shape_key: string | null;
+  note?: string | null;
 }
 
 export interface LookupResponse {
   address_used: string | null;
   coordinates: Coordinates;
   districts: Districts;
-  endorsements: Endorsement[];
+  officials: ElectedOfficial[];
   district_shapes?: Record<string, GeoJSON.Geometry>;
 }
 
-export interface EndorsementConfig {
-  race: string;
-  candidate: string;
-  party: string;
-  district?: EndorsementDistrictRef;
-  district_layer?: string;
-  district_type?: string;
-  district_number?: number;
+export interface OfficialConfig {
+  office_id: string;
+  name: string;
+  party?: string;
+  url?: string;
+  phone?: string;
+  district?: DistrictRef;
 }
 
 export interface AutocompleteSuggestion {

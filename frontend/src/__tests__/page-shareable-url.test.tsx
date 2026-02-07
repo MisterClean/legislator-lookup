@@ -15,7 +15,7 @@ function mockLookupResponse(overrides: Partial<Record<string, unknown>> = {}) {
       city_ward: 42,
       cook_county: 10,
     },
-    endorsements: [],
+    officials: [],
     ...overrides,
   };
 }

@@ -1,0 +1,22 @@
+officials:
+  # Sample data only. This repo is intentionally headless: replace this file
+  # with your org's official roster for your jurisdiction.
+  #
+  # Statewide offices (no `district` field):
+  - office_id: us_senate_1
+    name: Dick Durbin
+    party: D
+    url: https://www.durbin.senate.gov
+
+  - office_id: us_senate_2
+    name: Tammy Duckworth
+    party: D
+    url: https://www.duckworth.senate.gov
+
+  # District-based office examples (add all districts you want to support):
+  # - office_id: us_house
+  #   district:
+  #     layer: congressional
+  #     number: 7
+  #   name: Example Rep
+  #   party: D

@@ -4,6 +4,7 @@ import { readFileSync } from "fs";
 import { join } from "path";
 import type { Geometry } from "geojson";
 import yaml from "yaml";
+import { APP_CONFIG } from "./app-config";
 import {
   DISTRICT_LAYER_CONFIGS,
   DISTRICT_LAYER_IDS,
@@ -13,16 +14,16 @@ import {
 import { getGeocodingClient } from "./geocoding";
 import type {
   Districts,
-  Endorsement,
-  EndorsementConfig,
-  EndorsementDistrictRef,
+  DistrictRef,
+  ElectedOfficial,
+  OfficialConfig,
 } from "./types";
 
 type DistrictGeoJSON = FeatureCollection<Polygon | MultiPolygon>;
 
 // Cache for loaded data (server-side only)
 let districtsCache: Map<string, DistrictGeoJSON> | null = null;
-let endorsementsCache: EndorsementConfig[] | null = null;
+let officialsCache: OfficialConfig[] | null = null;
 let jurisdictionBoundaryCache: Feature<Polygon | MultiPolygon> | null = null;
 
 function getDataPath(pathFromDataDir: string): string {
@@ -82,18 +83,18 @@ export function loadDistricts(): Map<string, DistrictGeoJSON> {
   return districtsCache;
 }
 
-export function loadEndorsements(): EndorsementConfig[] {
-  if (endorsementsCache) return endorsementsCache;
+export function loadOfficials(): OfficialConfig[] {
+  if (officialsCache) return officialsCache;
 
   try {
-    const filepath = getDataPath("endorsements.yaml");
+    const filepath = getDataPath("officials.yaml");
     const content = readFileSync(filepath, "utf-8");
-    const data = yaml.parse(content) as { endorsements?: EndorsementConfig[] } | null;
-    endorsementsCache = data?.endorsements || [];
-    console.log(`Loaded ${endorsementsCache.length} endorsements`);
-    return endorsementsCache;
+    const data = yaml.parse(content) as { officials?: OfficialConfig[] } | null;
+    officialsCache = data?.officials || [];
+    console.log(`Loaded ${officialsCache.length} officials`);
+    return officialsCache;
   } catch (error) {
-    console.warn("Warning: Could not load endorsements.yaml:", error);
+    console.warn("Warning: Could not load officials.yaml:", error);
     return [];
   }
 }
@@ -160,66 +161,85 @@ export function lookupDistricts(
   return result;
 }
 
-function normalizeDistrictRef(
-  config: EndorsementConfig
-): EndorsementDistrictRef | "invalid" | null {
-  if (config.district !== undefined) {
-    const layer = config.district?.layer;
-    const number = Number(config.district?.number);
-    if (typeof layer === "string" && layer.length > 0 && Number.isFinite(number)) {
-      return { layer, number };
-    }
-    return "invalid";
-  }
+function buildDistrictRef(layerId: string, number: number): DistrictRef {
+  return { layer: layerId, number };
+}
 
-  const hasLegacyRefFields =
-    config.district_layer !== undefined ||
-    config.district_type !== undefined ||
-    config.district_number !== undefined;
-  if (hasLegacyRefFields) {
-    const legacyLayer = config.district_layer || config.district_type;
-    const legacyNumber = Number(config.district_number);
-    if (legacyLayer && Number.isFinite(legacyNumber)) {
-      return { layer: legacyLayer, number: legacyNumber };
-    }
-    return "invalid";
-  }
+function findOfficial(
+  officialsData: OfficialConfig[],
+  officeId: string,
+  district: DistrictRef | null
+): OfficialConfig | null {
+  for (const candidate of officialsData) {
+    if (candidate.office_id !== officeId) continue;
 
+    const candDistrict = candidate.district || null;
+    if (district === null && candDistrict === null) return candidate;
+    if (
+      district !== null &&
+      candDistrict !== null &&
+      candDistrict.layer === district.layer &&
+      candDistrict.number === district.number
+    ) {
+      return candidate;
+    }
+  }
   return null;
 }
 
-export function getEndorsements(
+export function getElectedOfficials(
   districts: Districts,
-  endorsementsData: EndorsementConfig[]
-): Endorsement[] {
-  const result: Endorsement[] = [];
+  officialsData: OfficialConfig[]
+): ElectedOfficial[] {
+  const result: ElectedOfficial[] = [];
 
-  for (const endorsement of endorsementsData) {
-    const districtRef = normalizeDistrictRef(endorsement);
-    const { race, candidate, party } = endorsement;
+  for (const slot of APP_CONFIG.officials.officeSlots) {
+    const slotDistrictLayer = slot.districtLayer;
 
-    // Statewide endorsement (no district reference)
-    if (districtRef === null) {
-      result.push({ race, candidate, party });
-      continue;
+    let district: DistrictRef | null = null;
+    let shapeKey: string | null = null;
+    let note: string | null = null;
+
+    if (slot.statewide) {
+      shapeKey = "statewide";
+    } else if (slotDistrictLayer) {
+      const districtNumber = districts[slotDistrictLayer];
+      if (typeof districtNumber === "number") {
+        district = buildDistrictRef(slotDistrictLayer, districtNumber);
+        shapeKey = slotDistrictLayer;
+      } else {
+        // Still return a placeholder slot; UI can render "Unknown district".
+        note = `District not resolved for layer '${slotDistrictLayer}'.`;
+      }
+    } else {
+      note = "Office slot is misconfigured (missing statewide or districtLayer).";
     }
 
-    // Invalid district config should not silently become statewide.
-    if (districtRef === "invalid") {
-      continue;
-    }
+    const match = findOfficial(officialsData, slot.id, district);
 
-    // District-specific endorsement
-    const userDistrict = districts[districtRef.layer];
-    if (userDistrict !== null && userDistrict === districtRef.number) {
+    if (!match) {
       result.push({
-        race,
-        candidate,
-        party,
-        district_layer: districtRef.layer,
-        district_type: districtRef.layer,
+        office_id: slot.id,
+        office_label: slot.label,
+        name: null,
+        district,
+        shape_key: shapeKey,
+        note: note || "Official not configured for this office/district.",
       });
+      continue;
     }
+
+    result.push({
+      office_id: slot.id,
+      office_label: slot.label,
+      name: match.name,
+      party: match.party,
+      url: match.url,
+      phone: match.phone,
+      district,
+      shape_key: shapeKey,
+      note,
+    });
   }
 
   return result;

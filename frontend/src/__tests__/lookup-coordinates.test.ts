@@ -29,7 +29,7 @@ describe("Lookup by Coordinates", () => {
     expect(data).toHaveProperty("address_used");
     expect(data).toHaveProperty("coordinates");
     expect(data).toHaveProperty("districts");
-    expect(data).toHaveProperty("endorsements");
+    expect(data).toHaveProperty("officials");
 
     // address_used should be null for coordinate lookups
     expect(data.address_used).toBeNull();

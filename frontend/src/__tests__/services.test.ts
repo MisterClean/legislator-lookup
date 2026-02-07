@@ -6,17 +6,17 @@
 import { describe, it, expect } from "vitest";
 import {
   checkJurisdiction,
-  getEndorsements,
+  getElectedOfficials,
   lookupDistricts,
   getDistrictShapes,
   loadDistricts,
-  loadEndorsements,
+  loadOfficials,
 } from "@/lib/services";
 import type { Districts } from "@/lib/types";
 
 // Load real data once — these are fast disk reads cached in memory
 const districtsData = loadDistricts();
-const endorsementsData = loadEndorsements();
+const officialsData = loadOfficials();
 
 describe("checkJurisdiction", () => {
   it("returns true for coordinates inside the sample jurisdiction", () => {
@@ -48,7 +48,7 @@ describe("checkJurisdiction", () => {
   });
 });
 
-describe("getEndorsements", () => {
+describe("getElectedOfficials", () => {
   const sampleDistricts: Districts = {
     congressional: 7,
     state_senate: 3,
@@ -57,127 +57,31 @@ describe("getEndorsements", () => {
     cook_county: 10,
   };
 
-  it("returns statewide endorsements for any districts", () => {
-    const results = getEndorsements(sampleDistricts, endorsementsData);
-    const races = results.map((e) => e.race);
-    expect(races).toContain("US Senate");
-    expect(races).toContain("Governor");
-    expect(races).toContain("Attorney General");
-    expect(races).toContain("Secretary of State");
-    expect(races).toContain("Comptroller");
-    expect(races).toContain("Treasurer");
+  it("returns one entry per configured office slot", () => {
+    const results = getElectedOfficials(sampleDistricts, officialsData);
+    expect(Array.isArray(results)).toBe(true);
+    // Current config has 7 slots; this test intentionally fails if slots change without updating.
+    expect(results.length).toBe(7);
   });
 
-  it("returns matching district-specific endorsements", () => {
-    const results = getEndorsements(sampleDistricts, endorsementsData);
-    const races = results.map((e) => e.race);
-    expect(races).toContain("US House IL-7");
-    expect(races).toContain("State Senate District 3");
-    expect(races).toContain("State House District 6");
+  it("resolves configured statewide officials from officials.yaml", () => {
+    const results = getElectedOfficials(sampleDistricts, officialsData);
+
+    const senate1 = results.find((o) => o.office_id === "us_senate_1");
+    const senate2 = results.find((o) => o.office_id === "us_senate_2");
+
+    expect(senate1?.name).toBe("Dick Durbin");
+    expect(senate2?.name).toBe("Tammy Duckworth");
   });
 
-  it("does NOT return endorsements for non-matching districts", () => {
-    const results = getEndorsements(sampleDistricts, endorsementsData);
-    const races = results.map((e) => e.race);
-    expect(races).not.toContain("US House IL-1");
-    expect(races).not.toContain("State Senate District 10");
-  });
+  it("returns placeholders for district-based offices not configured in officials.yaml", () => {
+    const results = getElectedOfficials(sampleDistricts, officialsData);
+    const usHouse = results.find((o) => o.office_id === "us_house");
 
-  it("returns empty array when no endorsements match", () => {
-    const emptyDistricts: Districts = {
-      congressional: null,
-      state_senate: null,
-      state_house: null,
-      city_ward: null,
-      cook_county: null,
-    };
-    const results = getEndorsements(emptyDistricts, [
-      { race: "Fake Race", candidate: "Nobody", party: "X", district_type: "congressional", district_number: 99 },
-    ]);
-    expect(results).toEqual([]);
-  });
-
-  it("handles empty endorsements list", () => {
-    const results = getEndorsements(sampleDistricts, []);
-    expect(results).toEqual([]);
-  });
-
-  it("returns Cook County Commissioner endorsement for matching district", () => {
-    const results = getEndorsements(sampleDistricts, endorsementsData);
-    const races = results.map((e) => e.race);
-    expect(races).toContain("Cook County Commissioner District 10");
-  });
-
-  it("matches endorsement using modern district.layer schema", () => {
-    const results = getEndorsements(sampleDistricts, [
-      {
-        race: "Modern Schema Race",
-        candidate: "Modern Candidate",
-        party: "D",
-        district: { layer: "congressional", number: 7 },
-      },
-    ]);
-
-    expect(results).toEqual([
-      {
-        race: "Modern Schema Race",
-        candidate: "Modern Candidate",
-        party: "D",
-        district_layer: "congressional",
-        district_type: "congressional",
-      },
-    ]);
-  });
-
-  it("supports district_layer + district_number compatibility fields", () => {
-    const results = getEndorsements(sampleDistricts, [
-      {
-        race: "Compat Schema Race",
-        candidate: "Compat Candidate",
-        party: "D",
-        district_layer: "state_senate",
-        district_number: 3,
-      },
-    ]);
-
-    expect(results).toEqual([
-      {
-        race: "Compat Schema Race",
-        candidate: "Compat Candidate",
-        party: "D",
-        district_layer: "state_senate",
-        district_type: "state_senate",
-      },
-    ]);
-  });
-
-  it("prefers modern district field when modern and legacy fields conflict", () => {
-    const results = getEndorsements(sampleDistricts, [
-      {
-        race: "Conflict Race",
-        candidate: "Conflict Candidate",
-        party: "D",
-        district: { layer: "state_house", number: 6 },
-        district_type: "congressional",
-        district_number: 1,
-      },
-    ]);
-
-    expect(results.map((entry) => entry.race)).toContain("Conflict Race");
-    expect(results[0].district_layer).toBe("state_house");
-  });
-
-  it("skips invalid district refs instead of treating them as statewide", () => {
-    const results = getEndorsements(sampleDistricts, [
-      {
-        race: "Invalid District Ref",
-        candidate: "Nobody",
-        party: "D",
-        district: { layer: "", number: 7 },
-      },
-    ]);
-
-    expect(results).toEqual([]);
+    expect(usHouse?.district?.layer).toBe("congressional");
+    expect(usHouse?.district?.number).toBe(7);
+    expect(usHouse?.name).toBeNull();
+    expect(typeof usHouse?.note).toBe("string");
   });
 });
 
