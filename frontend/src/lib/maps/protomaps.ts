@@ -14,6 +14,12 @@ type MapLibreMapLike = {
   remove: () => void;
 };
 
+type MapLibreMarkerLike = {
+  setLngLat: (lngLat: LngLatLike) => MapLibreMarkerLike;
+  addTo: (map: MapLibreMapLike) => MapLibreMarkerLike;
+  remove: () => void;
+};
+
 type MapLibreLike = {
   Map: new (options: {
     container: HTMLElement;
@@ -25,11 +31,7 @@ type MapLibreLike = {
     dragRotate: boolean;
     pitchWithRotate: boolean;
   }) => MapLibreMapLike;
-  Marker: new (options: { color: string }) => {
-    setLngLat: (lngLat: LngLatLike) => unknown;
-    addTo: (map: MapLibreMapLike) => unknown;
-    remove: () => void;
-  };
+  Marker: new (options: { color: string }) => MapLibreMarkerLike;
   AttributionControl: new (options: { compact: boolean }) => unknown;
 };
 
