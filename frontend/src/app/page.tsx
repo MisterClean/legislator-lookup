@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { LookupResponse } from "@/lib/types";
 import { APP_CONFIG } from "@/lib/app-config";
+import { DistrictMap } from "@/components/DistrictMap";
 
 interface Suggestion {
   address: string;
@@ -584,6 +585,16 @@ export default function Home() {
                             </a>
                           ) : null}
                           {official.phone ? <span>{official.phone}</span> : null}
+                        </div>
+                      ) : null}
+
+                      {official.shape_key && result.district_shapes?.[official.shape_key] ? (
+                        <div className="mt-4">
+                          <DistrictMap
+                            geometry={result.district_shapes[official.shape_key]}
+                            focus={result.coordinates}
+                            className="h-44 w-full border border-concrete"
+                          />
                         </div>
                       ) : null}
                     </div>

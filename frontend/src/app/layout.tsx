@@ -14,7 +14,7 @@ const bodyFont = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: `${APP_CONFIG.branding.orgName} — Ballot Lookup`,
+  title: `${APP_CONFIG.branding.orgName} - Officials Lookup`,
   description: APP_CONFIG.branding.headerSubtitle,
 };
 
