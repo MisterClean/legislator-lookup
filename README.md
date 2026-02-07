@@ -17,3 +17,4 @@ Environment variables:
 - `GEOCODE_EARTH_API_KEY` (server)
 - `NEXT_PUBLIC_PROTOMAPS_API_KEY` (client)
 
+See `frontend/.env.example`.
