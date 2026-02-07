@@ -58,6 +58,21 @@ npm run dev -p 3011
 
 Open `http://localhost:3011`.
 
+## Deployment
+
+### Docker
+
+```bash
+docker build -t legislator-lookup .
+docker run -p 3000:3000 legislator-lookup
+```
+
+Healthcheck: `GET /api/health`.
+
+### Railway
+
+This repo includes `railway.toml` and a Docker-based deploy.
+
 ## Environment Variables
 
 Do not commit real keys. Use `frontend/.env.example` as a template.
@@ -90,4 +105,3 @@ This repo ships a complete UI, but it is designed to be embedded:
 ## License
 
 MIT. See `LICENSE`.
-
