@@ -1,7 +1,7 @@
 # Legislator Lookup
 
-[![CI](./.github/workflows/ci.yml)](./.github/workflows/ci.yml)
-[![License: MIT](./LICENSE)](./LICENSE)
+[![CI](https://github.com/MisterClean/legislator-lookup/actions/workflows/ci.yml/badge.svg)](https://github.com/MisterClean/legislator-lookup/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
 Headless, self-hostable elected official lookup tool for civic organizations.
 
