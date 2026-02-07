@@ -30,6 +30,8 @@ describe("Lookup by Coordinates", () => {
     expect(data).toHaveProperty("coordinates");
     expect(data).toHaveProperty("districts");
     expect(data).toHaveProperty("officials");
+    expect(data).toHaveProperty("district_shapes");
+    expect(data.district_shapes).toHaveProperty("statewide");
 
     // address_used should be null for coordinate lookups
     expect(data.address_used).toBeNull();

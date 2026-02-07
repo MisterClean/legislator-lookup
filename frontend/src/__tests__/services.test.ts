@@ -80,6 +80,7 @@ describe("getElectedOfficials", () => {
 
     expect(usHouse?.district?.layer).toBe("congressional");
     expect(usHouse?.district?.number).toBe(7);
+    expect(usHouse?.shape_key).toBe("congressional");
     expect(usHouse?.name).toBeNull();
     expect(typeof usHouse?.note).toBe("string");
   });
