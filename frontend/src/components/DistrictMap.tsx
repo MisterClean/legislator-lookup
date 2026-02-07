@@ -8,22 +8,27 @@ export function DistrictMap(props: { geometry: GeoJSON.Geometry; focus: Coordina
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  const focusLat = props.focus.lat;
+  const focusLng = props.focus.lng;
+
   useEffect(() => {
     if (!containerRef.current) return;
-    setError(null);
 
     let cleanup: (() => void) | null = null;
     let cancelled = false;
 
     (async () => {
       try {
+        // Clear any previous error when we attempt to mount a new map.
+        setError(null);
+
         const adapter = await getMapAdapter();
         if (cancelled || !containerRef.current) return;
 
         cleanup = adapter.mountDistrictMap({
           container: containerRef.current,
           geometry: props.geometry,
-          focus: props.focus,
+          focus: { lat: focusLat, lng: focusLng },
         });
       } catch (err) {
         if (cancelled) return;
@@ -35,7 +40,7 @@ export function DistrictMap(props: { geometry: GeoJSON.Geometry; focus: Coordina
       cancelled = true;
       if (cleanup) cleanup();
     };
-  }, [props.geometry, props.focus.lat, props.focus.lng]);
+  }, [props.geometry, focusLat, focusLng]);
 
   return (
     <div

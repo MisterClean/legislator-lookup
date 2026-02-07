@@ -2,6 +2,37 @@ import type { MapAdapter, DistrictMapMountOptions } from "./types";
 import { bboxToBoundsLike, geometryBbox } from "../geojson/bbox";
 import { buildProtomapsStyleUrl } from "./protomaps-style";
 
+type LngLatLike = [number, number];
+
+type MapLibreMapLike = {
+  addControl: (control: unknown) => void;
+  on: (event: "load", cb: () => void) => void;
+  addSource: (id: string, source: unknown) => void;
+  addLayer: (layer: unknown) => void;
+  fitBounds: (bounds: unknown, options: { padding: number; duration: number; maxZoom: number }) => void;
+  jumpTo: (options: { center: LngLatLike; zoom: number }) => void;
+  remove: () => void;
+};
+
+type MapLibreLike = {
+  Map: new (options: {
+    container: HTMLElement;
+    style: string;
+    center: LngLatLike;
+    zoom: number;
+    attributionControl: boolean;
+    interactive: boolean;
+    dragRotate: boolean;
+    pitchWithRotate: boolean;
+  }) => MapLibreMapLike;
+  Marker: new (options: { color: string }) => {
+    setLngLat: (lngLat: LngLatLike) => unknown;
+    addTo: (map: MapLibreMapLike) => unknown;
+    remove: () => void;
+  };
+  AttributionControl: new (options: { compact: boolean }) => unknown;
+};
+
 function getEnvOrThrow(name: string, value: string | undefined): string {
   const normalized = value?.trim();
   if (!normalized) {
@@ -17,7 +48,7 @@ export function createProtomapsAdapter(config: { style: "light" | "dark" }): Map
   return {
     provider: "protomaps",
     mountDistrictMap(options: DistrictMapMountOptions) {
-      const maplibregl = (globalThis as unknown as { maplibregl?: any }).maplibregl;
+      const maplibregl = (globalThis as unknown as { maplibregl?: unknown }).maplibregl as MapLibreLike | undefined;
       if (!maplibregl) {
         throw new Error("MapLibre GL is not available (expected global 'maplibregl').");
       }
