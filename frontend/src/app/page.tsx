@@ -10,21 +10,6 @@ interface Suggestion {
   lng: number;
 }
 
-function getRaceLevel(race: string): "federal" | "state" | "local" {
-  if (race.startsWith("US ")) return "federal";
-  if (race.startsWith("State ")) return "state";
-  if (["Governor", "Attorney General", "Secretary of State", "Comptroller", "Treasurer"].includes(race)) {
-    return "state";
-  }
-  return "local";
-}
-
-const LEVEL_COLORS: Record<string, string> = {
-  federal: "bg-ink",
-  state: "bg-accent-sky",
-  local: "bg-accent-coral",
-};
-
 function Spinner() {
   return (
     <span
@@ -373,12 +358,6 @@ export default function Home() {
           <p className="text-white/50 text-base md:text-lg font-body tracking-wide">
             {APP_CONFIG.branding.headerSubtitle}
           </p>
-          <div
-            className="inline-flex items-center gap-1.5 mt-4 px-4 py-1.5 bg-white/10 border border-white/20 text-accent-sky font-display text-sm font-bold uppercase tracking-wider"
-            style={{ animation: "fadeInUp 0.6s ease-out 0.2s both" }}
-          >
-            <span>◉</span> {APP_CONFIG.branding.electionLabel} <span>◉</span>
-          </div>
         </div>
         <div className="h-1.5 bg-accent-coral" />
       </header>
@@ -389,7 +368,7 @@ export default function Home() {
           style={{ animation: "fadeInUp 0.5s ease-out" }}
         >
           <h2 className="font-display text-2xl md:text-3xl font-bold uppercase tracking-wide text-ink mb-6">
-            Find Your Ballot
+            Find Your Officials
           </h2>
 
           <button
@@ -500,7 +479,7 @@ export default function Home() {
                   Looking up...
                 </span>
               ) : (
-                "Look Up My Ballot"
+                "Look Up My Officials"
               )}
             </button>
 
@@ -558,66 +537,61 @@ export default function Home() {
 
             <div className="bg-surface p-5 md:p-6 shadow-lg">
               <h3 className="font-display text-sm uppercase tracking-[0.15em] text-steel mb-4 font-bold">
-                Endorsed Slate
+                Your Elected Officials
               </h3>
 
-              {result.endorsements.length > 0 ? (
-                <div className="border border-concrete overflow-hidden">
-                  <table className="w-full table-fixed border-collapse">
-                    <thead>
-                      <tr className="bg-warm border-b border-concrete">
-                        <th className="text-left px-3 py-2 font-display text-[11px] uppercase tracking-[0.12em] text-steel w-[42%]">
-                          Candidate
-                        </th>
-                        <th className="text-left px-3 py-2 font-display text-[11px] uppercase tracking-[0.12em] text-steel w-[46%]">
-                          Race
-                        </th>
-                        <th className="text-center px-2 py-2 font-display text-[11px] uppercase tracking-[0.12em] text-steel w-[12%]">
-                          Party
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {result.endorsements.map((endorsement, index) => {
-                        const level = getRaceLevel(endorsement.race);
-                        return (
-                          <tr
-                            key={`${endorsement.race}-${endorsement.candidate}`}
-                            className="border-b border-concrete/80 last:border-b-0"
-                            style={{
-                              animation: `fadeInUp 0.35s ease-out ${index * 0.05}s both`,
-                            }}
-                          >
-                            <td className="px-3 py-2 align-top">
-                              <div className="flex items-start gap-2">
-                                <span
-                                  className={`mt-1.5 h-2 w-2 flex-shrink-0 ${LEVEL_COLORS[level]}`}
-                                  aria-hidden="true"
-                                />
-                                <span className="font-display text-[15px] md:text-base leading-tight text-ink uppercase tracking-wide">
-                                  {endorsement.candidate}
-                                </span>
-                              </div>
-                            </td>
-                            <td className="px-3 py-2 align-top">
-                              <span className="text-xs md:text-sm text-steel leading-tight">
-                                {endorsement.race}
-                              </span>
-                            </td>
-                            <td className="px-2 py-2 align-top text-center">
-                              <span className="inline-block text-[11px] font-display font-bold uppercase tracking-wider bg-warm text-steel px-2 py-0.5">
-                                {endorsement.party}
-                              </span>
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
+              {result.officials.length > 0 ? (
+                <div className="space-y-3">
+                  {result.officials.map((official, index) => (
+                    <div
+                      key={`${official.office_id}-${official.district?.layer ?? "statewide"}-${official.district?.number ?? "x"}`}
+                      className="border border-concrete bg-warm/40 p-4"
+                      style={{ animation: `fadeInUp 0.35s ease-out ${index * 0.05}s both` }}
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="min-w-0">
+                          <div className="font-display text-xs uppercase tracking-[0.16em] text-steel font-bold">
+                            {official.office_label}
+                            {typeof official.district?.number === "number" ? (
+                              <span className="text-steel-light"> (District {official.district.number})</span>
+                            ) : null}
+                          </div>
+                          <div className="mt-1 font-display text-base md:text-lg leading-tight text-ink uppercase tracking-wide">
+                            {official.name ?? "Not configured"}
+                          </div>
+                          {official.note ? (
+                            <div className="mt-1 text-xs text-steel">{official.note}</div>
+                          ) : null}
+                        </div>
+
+                        {official.party ? (
+                          <span className="flex-shrink-0 inline-block text-[11px] font-display font-bold uppercase tracking-wider bg-ink text-white px-2 py-0.5">
+                            {official.party}
+                          </span>
+                        ) : null}
+                      </div>
+
+                      {(official.url || official.phone) ? (
+                        <div className="mt-3 flex flex-wrap gap-3 text-xs text-steel">
+                          {official.url ? (
+                            <a
+                              href={official.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="underline underline-offset-2 hover:text-ink"
+                            >
+                              Website
+                            </a>
+                          ) : null}
+                          {official.phone ? <span>{official.phone}</span> : null}
+                        </div>
+                      ) : null}
+                    </div>
+                  ))}
                 </div>
               ) : (
                 <p className="text-steel text-sm">
-                  No endorsements found for your districts.
+                  No officials found.
                 </p>
               )}
             </div>
@@ -634,7 +608,7 @@ export default function Home() {
             <span>◆</span>
           </div>
           <p className="text-xs font-body tracking-wide">
-            {APP_CONFIG.branding.orgName} &mdash; {APP_CONFIG.branding.footerBlurb}
+            {APP_CONFIG.branding.orgName} - {APP_CONFIG.branding.footerBlurb}
           </p>
           <p className="text-xs font-body tracking-wide mt-2">
             Maintained by{" "}
