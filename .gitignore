@@ -16,7 +16,7 @@ coverage
 
 # Env (never commit real keys)
 .env*
+!.env.example
 
 # OS
 .DS_Store
-
