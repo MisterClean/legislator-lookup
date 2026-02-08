@@ -262,14 +262,14 @@ export function getDistrictShapes(
         continue;
       }
 
-      const simplified = turf.simplify(feature, { tolerance: 0.002, highQuality: false });
+      const simplified = turf.simplify(feature, { tolerance: 0.0005, highQuality: true });
       shapes[layerId] = simplified.geometry;
       break;
     }
   }
 
   const boundary = loadJurisdictionBoundary();
-  const simplified = turf.simplify(boundary, { tolerance: 0.002, highQuality: false });
+  const simplified = turf.simplify(boundary, { tolerance: 0.0005, highQuality: true });
   shapes.statewide = simplified.geometry;
 
   return shapes;
