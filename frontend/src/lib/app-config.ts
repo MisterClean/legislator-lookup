@@ -84,7 +84,7 @@ export const APP_CONFIG: AppConfig = {
     headerSubtitle: "Find your elected officials in seconds",
     footerBlurb: "Headless, self-hostable elected official lookup for civic orgs",
     attributionName: "Civic Atlas Labs",
-    attributionUrl: "https://github.com/civic-atlas-labs",
+    attributionUrl: "https://github.com/MisterClean/legislator-lookup",
   },
   geography: {
     jurisdictionName: "Illinois (Sample Pack)",
