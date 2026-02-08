@@ -74,15 +74,14 @@ describe("getElectedOfficials", () => {
     expect(senate2?.name).toBe("Tammy Duckworth");
   });
 
-  it("returns placeholders for district-based offices not configured in officials.yaml", () => {
+  it("resolves district-based US House representative from officials.yaml", () => {
     const results = getElectedOfficials(sampleDistricts, officialsData);
     const usHouse = results.find((o) => o.office_id === "us_house");
 
     expect(usHouse?.district?.layer).toBe("congressional");
     expect(usHouse?.district?.number).toBe(7);
     expect(usHouse?.shape_key).toBe("congressional");
-    expect(usHouse?.name).toBeNull();
-    expect(typeof usHouse?.note).toBe("string");
+    expect(usHouse?.name).toBe("Danny K. Davis");
   });
 });
 

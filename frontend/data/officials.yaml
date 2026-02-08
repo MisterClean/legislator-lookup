@@ -1,8 +1,7 @@
 officials:
-  # Sample data only. This repo is intentionally headless: replace this file
-  # with your org's official roster for your jurisdiction.
-  #
-  # Statewide offices (no `district` field):
+
+  # ── US Senate (statewide) ──
+
   - office_id: us_senate_1
     name: Dick Durbin
     party: D
@@ -13,10 +12,1983 @@ officials:
     party: D
     url: https://www.duckworth.senate.gov
 
-  # District-based office examples (add all districts you want to support):
-  # - office_id: us_house
-  #   district:
-  #     layer: congressional
-  #     number: 7
-  #   name: Example Rep
-  #   party: D
+  # ── US House – 119th Congress (17 members) ──
+
+  - office_id: us_house
+    name: Jonathan Jackson
+    party: D
+    url: https://jonathanjackson.house.gov
+    district:
+      layer: congressional
+      number: 1
+
+  - office_id: us_house
+    name: Robin Kelly
+    party: D
+    url: https://robinkelly.house.gov
+    district:
+      layer: congressional
+      number: 2
+
+  - office_id: us_house
+    name: Delia Ramirez
+    party: D
+    url: https://ramirez.house.gov
+    district:
+      layer: congressional
+      number: 3
+
+  - office_id: us_house
+    name: "Jesús \"Chuy\" García"
+    party: D
+    url: https://chuygarcia.house.gov
+    district:
+      layer: congressional
+      number: 4
+
+  - office_id: us_house
+    name: Mike Quigley
+    party: D
+    url: https://quigley.house.gov
+    district:
+      layer: congressional
+      number: 5
+
+  - office_id: us_house
+    name: Sean Casten
+    party: D
+    url: https://casten.house.gov
+    district:
+      layer: congressional
+      number: 6
+
+  - office_id: us_house
+    name: Danny K. Davis
+    party: D
+    url: https://davis.house.gov
+    district:
+      layer: congressional
+      number: 7
+
+  - office_id: us_house
+    name: Raja Krishnamoorthi
+    party: D
+    url: https://krishnamoorthi.house.gov
+    district:
+      layer: congressional
+      number: 8
+
+  - office_id: us_house
+    name: Jan Schakowsky
+    party: D
+    url: https://schakowsky.house.gov
+    district:
+      layer: congressional
+      number: 9
+
+  - office_id: us_house
+    name: Brad Schneider
+    party: D
+    url: https://schneider.house.gov
+    district:
+      layer: congressional
+      number: 10
+
+  - office_id: us_house
+    name: Bill Foster
+    party: D
+    url: https://foster.house.gov
+    district:
+      layer: congressional
+      number: 11
+
+  - office_id: us_house
+    name: Mike Bost
+    party: R
+    url: https://bost.house.gov
+    district:
+      layer: congressional
+      number: 12
+
+  - office_id: us_house
+    name: Nikki Budzinski
+    party: D
+    url: https://budzinski.house.gov
+    district:
+      layer: congressional
+      number: 13
+
+  - office_id: us_house
+    name: Lauren Underwood
+    party: D
+    url: https://underwood.house.gov
+    district:
+      layer: congressional
+      number: 14
+
+  - office_id: us_house
+    name: Mary Miller
+    party: R
+    url: https://marymiller.house.gov
+    district:
+      layer: congressional
+      number: 15
+
+  - office_id: us_house
+    name: Darin LaHood
+    party: R
+    url: https://lahood.house.gov
+    district:
+      layer: congressional
+      number: 16
+
+  - office_id: us_house
+    name: Eric Sorensen
+    party: D
+    url: https://sorensen.house.gov
+    district:
+      layer: congressional
+      number: 17
+
+  # ── IL State Senate – 104th General Assembly (59 members) ──
+
+  - office_id: state_senate
+    name: Javier L. Cervantes
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3403
+    district:
+      layer: state_senate
+      number: 1
+
+  - office_id: state_senate
+    name: Omar Aquino
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3316
+    district:
+      layer: state_senate
+      number: 2
+
+  - office_id: state_senate
+    name: Mattie Hunter
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3269
+    district:
+      layer: state_senate
+      number: 3
+
+  - office_id: state_senate
+    name: Kimberly A. Lightford
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3264
+    district:
+      layer: state_senate
+      number: 4
+
+  - office_id: state_senate
+    name: Lakesia Collins
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3443
+    district:
+      layer: state_senate
+      number: 5
+
+  - office_id: state_senate
+    name: Sara Feigenholtz
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3376
+    district:
+      layer: state_senate
+      number: 6
+
+  - office_id: state_senate
+    name: Mike Simmons
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3398
+    district:
+      layer: state_senate
+      number: 7
+
+  - office_id: state_senate
+    name: Ram Villivalam
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3345
+    district:
+      layer: state_senate
+      number: 8
+
+  - office_id: state_senate
+    name: Laura Fine
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3338
+    district:
+      layer: state_senate
+      number: 9
+
+  - office_id: state_senate
+    name: Robert F. Martwick
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3369
+    district:
+      layer: state_senate
+      number: 10
+
+  - office_id: state_senate
+    name: Mike Porfirio
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3404
+    district:
+      layer: state_senate
+      number: 11
+
+  - office_id: state_senate
+    name: Celina Villanueva
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3375
+    district:
+      layer: state_senate
+      number: 12
+
+  - office_id: state_senate
+    name: Robert Peters
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3343
+    district:
+      layer: state_senate
+      number: 13
+
+  - office_id: state_senate
+    name: "Emil Jones, III"
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3276
+    district:
+      layer: state_senate
+      number: 14
+
+  - office_id: state_senate
+    name: "Napoleon Harris, III"
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3292
+    district:
+      layer: state_senate
+      number: 15
+
+  - office_id: state_senate
+    name: Willie Preston
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3405
+    district:
+      layer: state_senate
+      number: 16
+
+  - office_id: state_senate
+    name: "Elgie R. Sims, Jr."
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3331
+    district:
+      layer: state_senate
+      number: 17
+
+  - office_id: state_senate
+    name: Bill Cunningham
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3291
+    district:
+      layer: state_senate
+      number: 18
+
+  - office_id: state_senate
+    name: Michael E. Hastings
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3293
+    district:
+      layer: state_senate
+      number: 19
+
+  - office_id: state_senate
+    name: Graciela Guzmán
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3442
+    district:
+      layer: state_senate
+      number: 20
+
+  - office_id: state_senate
+    name: Laura Ellman
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3339
+    district:
+      layer: state_senate
+      number: 21
+
+  - office_id: state_senate
+    name: Cristina Castro
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3317
+    district:
+      layer: state_senate
+      number: 22
+
+  - office_id: state_senate
+    name: Suzy Glowiak Hilton
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3341
+    district:
+      layer: state_senate
+      number: 23
+
+  - office_id: state_senate
+    name: Seth Lewis
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3406
+    district:
+      layer: state_senate
+      number: 24
+
+  - office_id: state_senate
+    name: Karina Villa
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3385
+    district:
+      layer: state_senate
+      number: 25
+
+  - office_id: state_senate
+    name: Darby A. Hills
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3460
+    district:
+      layer: state_senate
+      number: 26
+
+  - office_id: state_senate
+    name: Mark L. Walker
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3449
+    district:
+      layer: state_senate
+      number: 27
+
+  - office_id: state_senate
+    name: Laura M. Murphy
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3313
+    district:
+      layer: state_senate
+      number: 28
+
+  - office_id: state_senate
+    name: Julie A. Morrison
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3294
+    district:
+      layer: state_senate
+      number: 29
+
+  - office_id: state_senate
+    name: Adriane Johnson
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3378
+    district:
+      layer: state_senate
+      number: 30
+
+  - office_id: state_senate
+    name: "Mary Edly-Allen"
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3407
+    district:
+      layer: state_senate
+      number: 31
+
+  - office_id: state_senate
+    name: Craig Wilcox
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3336
+    district:
+      layer: state_senate
+      number: 32
+
+  - office_id: state_senate
+    name: Donald P. DeWitte
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3334
+    district:
+      layer: state_senate
+      number: 33
+
+  - office_id: state_senate
+    name: Steve Stadelman
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3296
+    district:
+      layer: state_senate
+      number: 34
+
+  - office_id: state_senate
+    name: Dave Syverson
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3265
+    district:
+      layer: state_senate
+      number: 35
+
+  - office_id: state_senate
+    name: Michael W. Halpin
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3408
+    district:
+      layer: state_senate
+      number: 36
+
+  - office_id: state_senate
+    name: "Li Arellano, Jr."
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3383
+    district:
+      layer: state_senate
+      number: 37
+
+  - office_id: state_senate
+    name: Sue Rezin
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3281
+    district:
+      layer: state_senate
+      number: 38
+
+  - office_id: state_senate
+    name: Don Harmon
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3268
+    district:
+      layer: state_senate
+      number: 39
+
+  - office_id: state_senate
+    name: Patrick J. Joyce
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3372
+    district:
+      layer: state_senate
+      number: 40
+
+  - office_id: state_senate
+    name: John F. Curran
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3329
+    district:
+      layer: state_senate
+      number: 41
+
+  - office_id: state_senate
+    name: Linda Holmes
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3270
+    district:
+      layer: state_senate
+      number: 42
+
+  - office_id: state_senate
+    name: Rachel Ventura
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3409
+    district:
+      layer: state_senate
+      number: 43
+
+  - office_id: state_senate
+    name: Sally J. Turner
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3397
+    district:
+      layer: state_senate
+      number: 44
+
+  - office_id: state_senate
+    name: Andrew S. Chesney
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3410
+    district:
+      layer: state_senate
+      number: 45
+
+  - office_id: state_senate
+    name: David Koehler
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3271
+    district:
+      layer: state_senate
+      number: 46
+
+  - office_id: state_senate
+    name: Neil Anderson
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3312
+    district:
+      layer: state_senate
+      number: 47
+
+  - office_id: state_senate
+    name: Doris Turner
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3399
+    district:
+      layer: state_senate
+      number: 48
+
+  - office_id: state_senate
+    name: Meg Loughran Cappel
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3380
+    district:
+      layer: state_senate
+      number: 49
+
+  - office_id: state_senate
+    name: Jil Tracy
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3319
+    district:
+      layer: state_senate
+      number: 50
+
+  - office_id: state_senate
+    name: Chapin Rose
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3295
+    district:
+      layer: state_senate
+      number: 51
+
+  - office_id: state_senate
+    name: Paul Faraci
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3412
+    district:
+      layer: state_senate
+      number: 52
+
+  - office_id: state_senate
+    name: Chris Balkema
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3413
+    district:
+      layer: state_senate
+      number: 53
+
+  - office_id: state_senate
+    name: Steve McClure
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3342
+    district:
+      layer: state_senate
+      number: 54
+
+  - office_id: state_senate
+    name: Jason Plummer
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3344
+    district:
+      layer: state_senate
+      number: 55
+
+  - office_id: state_senate
+    name: Erica Harriss
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3411
+    district:
+      layer: state_senate
+      number: 56
+
+  - office_id: state_senate
+    name: Christopher Belt
+    party: D
+    url: https://www.ilga.gov/Senate/Members/Details/3337
+    district:
+      layer: state_senate
+      number: 57
+
+  - office_id: state_senate
+    name: Terri Bryant
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3386
+    district:
+      layer: state_senate
+      number: 58
+
+  - office_id: state_senate
+    name: Dale Fowler
+    party: R
+    url: https://www.ilga.gov/Senate/Members/Details/3318
+    district:
+      layer: state_senate
+      number: 59
+
+  # ── IL State House – 104th General Assembly (118 members) ──
+
+  - office_id: state_house
+    name: Aarón M. Ortíz
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3358
+    district:
+      layer: state_house
+      number: 1
+
+  - office_id: state_house
+    name: "Elizabeth \"Lisa\" Hernandez"
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3273
+    district:
+      layer: state_house
+      number: 2
+
+  - office_id: state_house
+    name: "Eva-Dina Delgado"
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3373
+    district:
+      layer: state_house
+      number: 3
+
+  - office_id: state_house
+    name: Lilian Jiménez
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3417
+    district:
+      layer: state_house
+      number: 4
+
+  - office_id: state_house
+    name: Kimberly Du Buclet
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3441
+    district:
+      layer: state_house
+      number: 5
+
+  - office_id: state_house
+    name: Sonya M. Harper
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3314
+    district:
+      layer: state_house
+      number: 6
+
+  - office_id: state_house
+    name: "Emanuel \"Chris\" Welch"
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3298
+    district:
+      layer: state_house
+      number: 7
+
+  - office_id: state_house
+    name: La Shawn K. Ford
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3272
+    district:
+      layer: state_house
+      number: 8
+
+  - office_id: state_house
+    name: Yolonda Morris
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3444
+    district:
+      layer: state_house
+      number: 9
+
+  - office_id: state_house
+    name: Jawaharial Williams
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3368
+    district:
+      layer: state_house
+      number: 10
+
+  - office_id: state_house
+    name: Ann M. Williams
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3286
+    district:
+      layer: state_house
+      number: 11
+
+  - office_id: state_house
+    name: Margaret Croke
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3384
+    district:
+      layer: state_house
+      number: 12
+
+  - office_id: state_house
+    name: Hoan Huynh
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3418
+    district:
+      layer: state_house
+      number: 13
+
+  - office_id: state_house
+    name: Kelly M. Cassidy
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3288
+    district:
+      layer: state_house
+      number: 14
+
+  - office_id: state_house
+    name: Michael J. Kelly
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3402
+    district:
+      layer: state_house
+      number: 15
+
+  - office_id: state_house
+    name: Kevin John Olickal
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3419
+    district:
+      layer: state_house
+      number: 16
+
+  - office_id: state_house
+    name: "Jennifer Gong-Gershowitz"
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3352
+    district:
+      layer: state_house
+      number: 17
+
+  - office_id: state_house
+    name: Robyn Gabel
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3278
+    district:
+      layer: state_house
+      number: 18
+
+  - office_id: state_house
+    name: Lindsey LaPointe
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3371
+    district:
+      layer: state_house
+      number: 19
+
+  - office_id: state_house
+    name: Brad Stephens
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3370
+    district:
+      layer: state_house
+      number: 20
+
+  - office_id: state_house
+    name: Abdelnasser Rashid
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3420
+    district:
+      layer: state_house
+      number: 21
+
+  - office_id: state_house
+    name: "Angelica Guerrero-Cuellar"
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3400
+    district:
+      layer: state_house
+      number: 22
+
+  - office_id: state_house
+    name: "Edgar González, Jr."
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3374
+    district:
+      layer: state_house
+      number: 23
+
+  - office_id: state_house
+    name: Theresa Mah
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3321
+    district:
+      layer: state_house
+      number: 24
+
+  - office_id: state_house
+    name: "Curtis J. Tarver, II"
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3355
+    district:
+      layer: state_house
+      number: 25
+
+  - office_id: state_house
+    name: Kam Buckner
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3366
+    district:
+      layer: state_house
+      number: 26
+
+  - office_id: state_house
+    name: Justin Slaughter
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3320
+    district:
+      layer: state_house
+      number: 27
+
+  - office_id: state_house
+    name: "Robert \"Bob\" Rita"
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3267
+    district:
+      layer: state_house
+      number: 28
+
+  - office_id: state_house
+    name: Thaddeus Jones
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3283
+    district:
+      layer: state_house
+      number: 29
+
+  - office_id: state_house
+    name: "William \"Will\" Davis"
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3266
+    district:
+      layer: state_house
+      number: 30
+
+  - office_id: state_house
+    name: Michael Crawford
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3452
+    district:
+      layer: state_house
+      number: 31
+
+  - office_id: state_house
+    name: Lisa Davis
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3458
+    district:
+      layer: state_house
+      number: 32
+
+  - office_id: state_house
+    name: "Marcus C. Evans, Jr."
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3289
+    district:
+      layer: state_house
+      number: 33
+
+  - office_id: state_house
+    name: Nicholas K. Smith
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3332
+    district:
+      layer: state_house
+      number: 34
+
+  - office_id: state_house
+    name: Mary Gill
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3440
+    district:
+      layer: state_house
+      number: 35
+
+  - office_id: state_house
+    name: Rick Ryan
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3457
+    district:
+      layer: state_house
+      number: 36
+
+  - office_id: state_house
+    name: Patrick Sheehan
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3448
+    district:
+      layer: state_house
+      number: 37
+
+  - office_id: state_house
+    name: "Debbie Meyers-Martin"
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3350
+    district:
+      layer: state_house
+      number: 38
+
+  - office_id: state_house
+    name: Will Guzzardi
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3311
+    district:
+      layer: state_house
+      number: 39
+
+  - office_id: state_house
+    name: "Jaime M. Andrade, Jr."
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3307
+    district:
+      layer: state_house
+      number: 40
+
+  - office_id: state_house
+    name: Janet Yang Rohr
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3387
+    district:
+      layer: state_house
+      number: 41
+
+  - office_id: state_house
+    name: Margaret A. DeLaRosa
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3461
+    district:
+      layer: state_house
+      number: 42
+
+  - office_id: state_house
+    name: Anna Moeller
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3308
+    district:
+      layer: state_house
+      number: 43
+
+  - office_id: state_house
+    name: Fred Crespo
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3274
+    district:
+      layer: state_house
+      number: 44
+
+  - office_id: state_house
+    name: Martha Deuter
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3455
+    district:
+      layer: state_house
+      number: 45
+
+  - office_id: state_house
+    name: "Diane Blair-Sherlock"
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3425
+    district:
+      layer: state_house
+      number: 46
+
+  - office_id: state_house
+    name: Amy L. Grant
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3360
+    district:
+      layer: state_house
+      number: 47
+
+  - office_id: state_house
+    name: Jennifer Sanalitro
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3422
+    district:
+      layer: state_house
+      number: 48
+
+  - office_id: state_house
+    name: Maura Hirschauer
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3388
+    district:
+      layer: state_house
+      number: 49
+
+  - office_id: state_house
+    name: Barbara Hernandez
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3367
+    district:
+      layer: state_house
+      number: 50
+
+  - office_id: state_house
+    name: Nabeela Syed
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3423
+    district:
+      layer: state_house
+      number: 51
+
+  - office_id: state_house
+    name: Martin McLaughlin
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3389
+    district:
+      layer: state_house
+      number: 52
+
+  - office_id: state_house
+    name: Nicolle Grasse
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3450
+    district:
+      layer: state_house
+      number: 53
+
+  - office_id: state_house
+    name: Mary Beth Canty
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3424
+    district:
+      layer: state_house
+      number: 54
+
+  - office_id: state_house
+    name: Justin Cochran
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3462
+    district:
+      layer: state_house
+      number: 55
+
+  - office_id: state_house
+    name: Michelle Mussman
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3284
+    district:
+      layer: state_house
+      number: 56
+
+  - office_id: state_house
+    name: Tracy Katz Muhl
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3447
+    district:
+      layer: state_house
+      number: 57
+
+  - office_id: state_house
+    name: Bob Morgan
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3353
+    district:
+      layer: state_house
+      number: 58
+
+  - office_id: state_house
+    name: Daniel Didech
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3347
+    district:
+      layer: state_house
+      number: 59
+
+  - office_id: state_house
+    name: Rita Mayfield
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3280
+    district:
+      layer: state_house
+      number: 60
+
+  - office_id: state_house
+    name: Joyce Mason
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3357
+    district:
+      layer: state_house
+      number: 61
+
+  - office_id: state_house
+    name: Laura Faver Dias
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3426
+    district:
+      layer: state_house
+      number: 62
+
+  - office_id: state_house
+    name: Steven Reick
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3323
+    district:
+      layer: state_house
+      number: 63
+
+  - office_id: state_house
+    name: Tom Weber
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3361
+    district:
+      layer: state_house
+      number: 64
+
+  - office_id: state_house
+    name: Dan Ugaste
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3359
+    district:
+      layer: state_house
+      number: 65
+
+  - office_id: state_house
+    name: Suzanne M. Ness
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3396
+    district:
+      layer: state_house
+      number: 66
+
+  - office_id: state_house
+    name: "Maurice A. West, II"
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3346
+    district:
+      layer: state_house
+      number: 67
+
+  - office_id: state_house
+    name: Dave Vella
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3390
+    district:
+      layer: state_house
+      number: 68
+
+  - office_id: state_house
+    name: Joe C. Sosnowski
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3285
+    district:
+      layer: state_house
+      number: 69
+
+  - office_id: state_house
+    name: Jeff Keicher
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3333
+    district:
+      layer: state_house
+      number: 70
+
+  - office_id: state_house
+    name: Dan Swanson
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3327
+    district:
+      layer: state_house
+      number: 71
+
+  - office_id: state_house
+    name: Gregg Johnson
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3427
+    district:
+      layer: state_house
+      number: 72
+
+  - office_id: state_house
+    name: Ryan Spain
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3325
+    district:
+      layer: state_house
+      number: 73
+
+  - office_id: state_house
+    name: Bradley Fritts
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3428
+    district:
+      layer: state_house
+      number: 74
+
+  - office_id: state_house
+    name: Jed Davis
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3414
+    district:
+      layer: state_house
+      number: 75
+
+  - office_id: state_house
+    name: Amy Briel
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3451
+    district:
+      layer: state_house
+      number: 76
+
+  - office_id: state_house
+    name: Norma Hernandez
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3415
+    district:
+      layer: state_house
+      number: 77
+
+  - office_id: state_house
+    name: Camille Y. Lilly
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3279
+    district:
+      layer: state_house
+      number: 78
+
+  - office_id: state_house
+    name: Jackie Haas
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3379
+    district:
+      layer: state_house
+      number: 79
+
+  - office_id: state_house
+    name: Anthony DeLuca
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3277
+    district:
+      layer: state_house
+      number: 80
+
+  - office_id: state_house
+    name: Anne Stava
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3349
+    district:
+      layer: state_house
+      number: 81
+
+  - office_id: state_house
+    name: Nicole La Ha
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3445
+    district:
+      layer: state_house
+      number: 82
+
+  - office_id: state_house
+    name: Matt Hanson
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3416
+    district:
+      layer: state_house
+      number: 83
+
+  - office_id: state_house
+    name: Stephanie A. Kifowit
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3301
+    district:
+      layer: state_house
+      number: 84
+
+  - office_id: state_house
+    name: Dagmara Avelar
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3391
+    district:
+      layer: state_house
+      number: 85
+
+  - office_id: state_house
+    name: "Lawrence \"Larry\" Walsh, Jr."
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3290
+    district:
+      layer: state_house
+      number: 86
+
+  - office_id: state_house
+    name: William E Hauter
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3429
+    district:
+      layer: state_house
+      number: 87
+
+  - office_id: state_house
+    name: Regan Deering
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3454
+    district:
+      layer: state_house
+      number: 88
+
+  - office_id: state_house
+    name: Tony M. McCombie
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3322
+    district:
+      layer: state_house
+      number: 89
+
+  - office_id: state_house
+    name: John M. Cabello
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3430
+    district:
+      layer: state_house
+      number: 90
+
+  - office_id: state_house
+    name: Sharon Chung
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3431
+    district:
+      layer: state_house
+      number: 91
+
+  - office_id: state_house
+    name: "Jehan Gordon-Booth"
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3275
+    district:
+      layer: state_house
+      number: 92
+
+  - office_id: state_house
+    name: Travis Weaver
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3435
+    district:
+      layer: state_house
+      number: 93
+
+  - office_id: state_house
+    name: Norine K. Hammond
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3287
+    district:
+      layer: state_house
+      number: 94
+
+  - office_id: state_house
+    name: "Michael J. Coffey, Jr."
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3437
+    district:
+      layer: state_house
+      number: 95
+
+  - office_id: state_house
+    name: Sue Scherer
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3303
+    district:
+      layer: state_house
+      number: 96
+
+  - office_id: state_house
+    name: Harry Benton
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3432
+    district:
+      layer: state_house
+      number: 97
+
+  - office_id: state_house
+    name: Natalie A. Manley
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3302
+    district:
+      layer: state_house
+      number: 98
+
+  - office_id: state_house
+    name: Kyle Moore
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3456
+    district:
+      layer: state_house
+      number: 99
+
+  - office_id: state_house
+    name: "Christopher \"C.D.\" Davidsmeyer"
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3304
+    district:
+      layer: state_house
+      number: 100
+
+  - office_id: state_house
+    name: Chris Miller
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3362
+    district:
+      layer: state_house
+      number: 101
+
+  - office_id: state_house
+    name: Adam M. Niemerg
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3392
+    district:
+      layer: state_house
+      number: 102
+
+  - office_id: state_house
+    name: Carol Ammons
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3309
+    district:
+      layer: state_house
+      number: 103
+
+  - office_id: state_house
+    name: Brandun Schweizer
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3446
+    district:
+      layer: state_house
+      number: 104
+
+  - office_id: state_house
+    name: Dennis Tipsword
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3433
+    district:
+      layer: state_house
+      number: 105
+
+  - office_id: state_house
+    name: Jason R. Bunting
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3439
+    district:
+      layer: state_house
+      number: 106
+
+  - office_id: state_house
+    name: Brad Halbrook
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3328
+    district:
+      layer: state_house
+      number: 107
+
+  - office_id: state_house
+    name: Wayne A. Rosenthal
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3434
+    district:
+      layer: state_house
+      number: 108
+
+  - office_id: state_house
+    name: Charles Meier
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3305
+    district:
+      layer: state_house
+      number: 109
+
+  - office_id: state_house
+    name: Blaine Wilhour
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3365
+    district:
+      layer: state_house
+      number: 110
+
+  - office_id: state_house
+    name: Amy Elik
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3393
+    district:
+      layer: state_house
+      number: 111
+
+  - office_id: state_house
+    name: Katie Stuart
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3326
+    district:
+      layer: state_house
+      number: 112
+
+  - office_id: state_house
+    name: Jay Hoffman
+    party: D
+    url: https://www.ilga.gov/House/Members/Details/3306
+    district:
+      layer: state_house
+      number: 113
+
+  - office_id: state_house
+    name: Kevin Schmidt
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3436
+    district:
+      layer: state_house
+      number: 114
+
+  - office_id: state_house
+    name: David Friess
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3395
+    district:
+      layer: state_house
+      number: 115
+
+  - office_id: state_house
+    name: Dave Severin
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3324
+    district:
+      layer: state_house
+      number: 116
+
+  - office_id: state_house
+    name: Patrick Windhorst
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3364
+    district:
+      layer: state_house
+      number: 117
+
+  - office_id: state_house
+    name: Paul Jacobs
+    party: R
+    url: https://www.ilga.gov/House/Members/Details/3394
+    district:
+      layer: state_house
+      number: 118
+
+  # ── Chicago City Council (50 aldermen) ──
+
+  - office_id: city_council
+    name: Daniel La Spata
+    district:
+      layer: city_ward
+      number: 1
+
+  - office_id: city_council
+    name: Brian Hopkins
+    district:
+      layer: city_ward
+      number: 2
+
+  - office_id: city_council
+    name: Pat Dowell
+    district:
+      layer: city_ward
+      number: 3
+
+  - office_id: city_council
+    name: Lamont J. Robinson
+    district:
+      layer: city_ward
+      number: 4
+
+  - office_id: city_council
+    name: Desmon C. Yancy
+    district:
+      layer: city_ward
+      number: 5
+
+  - office_id: city_council
+    name: William E. Hall
+    district:
+      layer: city_ward
+      number: 6
+
+  - office_id: city_council
+    name: Gregory I. Mitchell
+    district:
+      layer: city_ward
+      number: 7
+
+  - office_id: city_council
+    name: Michelle A. Harris
+    district:
+      layer: city_ward
+      number: 8
+
+  - office_id: city_council
+    name: Anthony Beale
+    district:
+      layer: city_ward
+      number: 9
+
+  - office_id: city_council
+    name: Peter Chico
+    district:
+      layer: city_ward
+      number: 10
+
+  - office_id: city_council
+    name: Nicole T. Lee
+    district:
+      layer: city_ward
+      number: 11
+
+  - office_id: city_council
+    name: Julia M. Ramirez
+    district:
+      layer: city_ward
+      number: 12
+
+  - office_id: city_council
+    name: Marty Quinn
+    district:
+      layer: city_ward
+      number: 13
+
+  - office_id: city_council
+    name: Jeylu B. Gutierrez
+    district:
+      layer: city_ward
+      number: 14
+
+  - office_id: city_council
+    name: Raymond A. Lopez
+    district:
+      layer: city_ward
+      number: 15
+
+  - office_id: city_council
+    name: Stephanie D. Coleman
+    district:
+      layer: city_ward
+      number: 16
+
+  - office_id: city_council
+    name: David H. Moore
+    district:
+      layer: city_ward
+      number: 17
+
+  - office_id: city_council
+    name: Derrick G. Curtis
+    district:
+      layer: city_ward
+      number: 18
+
+  - office_id: city_council
+    name: "Matthew J. O'Shea"
+    district:
+      layer: city_ward
+      number: 19
+
+  - office_id: city_council
+    name: Jeanette B. Taylor
+    district:
+      layer: city_ward
+      number: 20
+
+  - office_id: city_council
+    name: Ronnie L. Mosley
+    district:
+      layer: city_ward
+      number: 21
+
+  - office_id: city_council
+    name: Michael D. Rodriguez
+    district:
+      layer: city_ward
+      number: 22
+
+  - office_id: city_council
+    name: Silvana Tabares
+    district:
+      layer: city_ward
+      number: 23
+
+  - office_id: city_council
+    name: Monique L. Scott
+    district:
+      layer: city_ward
+      number: 24
+
+  - office_id: city_council
+    name: "Byron Sigcho-Lopez"
+    district:
+      layer: city_ward
+      number: 25
+
+  - office_id: city_council
+    name: Jessica L. Fuentes
+    district:
+      layer: city_ward
+      number: 26
+
+  - office_id: city_council
+    name: "Walter Burnett, Jr."
+    district:
+      layer: city_ward
+      number: 27
+
+  - office_id: city_council
+    name: Jason C. Ervin
+    district:
+      layer: city_ward
+      number: 28
+
+  - office_id: city_council
+    name: Chris Taliaferro
+    district:
+      layer: city_ward
+      number: 29
+
+  - office_id: city_council
+    name: Ruth Cruz
+    district:
+      layer: city_ward
+      number: 30
+
+  - office_id: city_council
+    name: "Felix Cardona, Jr."
+    district:
+      layer: city_ward
+      number: 31
+
+  - office_id: city_council
+    name: Scott Waguespack
+    district:
+      layer: city_ward
+      number: 32
+
+  - office_id: city_council
+    name: Rossana Rodriguez Sanchez
+    district:
+      layer: city_ward
+      number: 33
+
+  - office_id: city_council
+    name: William Conway
+    district:
+      layer: city_ward
+      number: 34
+
+  - office_id: city_council
+    name: Anthony J. Quezada
+    district:
+      layer: city_ward
+      number: 35
+
+  - office_id: city_council
+    name: Gilbert Villegas
+    district:
+      layer: city_ward
+      number: 36
+
+  - office_id: city_council
+    name: Emma Mitts
+    district:
+      layer: city_ward
+      number: 37
+
+  - office_id: city_council
+    name: Nicholas Sposato
+    district:
+      layer: city_ward
+      number: 38
+
+  - office_id: city_council
+    name: Samantha Nugent
+    district:
+      layer: city_ward
+      number: 39
+
+  - office_id: city_council
+    name: "Andre Vasquez, Jr."
+    district:
+      layer: city_ward
+      number: 40
+
+  - office_id: city_council
+    name: Anthony V. Napolitano
+    district:
+      layer: city_ward
+      number: 41
+
+  - office_id: city_council
+    name: Brendan Reilly
+    district:
+      layer: city_ward
+      number: 42
+
+  - office_id: city_council
+    name: Timothy R. Knudsen
+    district:
+      layer: city_ward
+      number: 43
+
+  - office_id: city_council
+    name: Bennett R. Lawson
+    district:
+      layer: city_ward
+      number: 44
+
+  - office_id: city_council
+    name: James M. Gardiner
+    district:
+      layer: city_ward
+      number: 45
+
+  - office_id: city_council
+    name: Angela Clay
+    district:
+      layer: city_ward
+      number: 46
+
+  - office_id: city_council
+    name: Matthew J. Martin
+    district:
+      layer: city_ward
+      number: 47
+
+  - office_id: city_council
+    name: "Leni Manaa-Hoppenworth"
+    district:
+      layer: city_ward
+      number: 48
+
+  - office_id: city_council
+    name: Maria E. Hadden
+    district:
+      layer: city_ward
+      number: 49
+
+  - office_id: city_council
+    name: Debra L. Silverstein
+    district:
+      layer: city_ward
+      number: 50
+
+  # ── Cook County Board of Commissioners (17 members) ──
+
+  - office_id: county_commissioner
+    name: Tara S. Stamps
+    url: https://www.cookcountyil.gov/all-people/tara-stamps
+    district:
+      layer: cook_county
+      number: 1
+
+  - office_id: county_commissioner
+    name: Michael Scott Jr.
+    url: https://www.cookcountyil.gov/all-people/michael-scott-jr
+    district:
+      layer: cook_county
+      number: 2
+
+  - office_id: county_commissioner
+    name: Bill Lowry
+    url: https://www.cookcountyil.gov/all-people/bill-lowry
+    district:
+      layer: cook_county
+      number: 3
+
+  - office_id: county_commissioner
+    name: Stanley Moore
+    url: https://www.cookcountyil.gov/all-people/stanley-moore
+    district:
+      layer: cook_county
+      number: 4
+
+  - office_id: county_commissioner
+    name: Dr. Kisha McCaskill
+    url: https://www.cookcountyil.gov/all-people/dr-kisha-mccaskill
+    district:
+      layer: cook_county
+      number: 5
+
+  - office_id: county_commissioner
+    name: Donna Miller
+    url: https://www.cookcountyil.gov/all-people/donna-miller
+    district:
+      layer: cook_county
+      number: 6
+
+  - office_id: county_commissioner
+    name: Alma Anaya
+    url: https://www.cookcountyil.gov/all-people/alma-anaya
+    district:
+      layer: cook_county
+      number: 7
+
+  - office_id: county_commissioner
+    name: Jessica Vásquez
+    url: https://www.cookcountyil.gov/all-people/jessica-v-squez
+    district:
+      layer: cook_county
+      number: 8
+
+  - office_id: county_commissioner
+    name: Maggie Trevor
+    url: https://www.cookcountyil.gov/all-people/maggie-trevor
+    district:
+      layer: cook_county
+      number: 9
+
+  - office_id: county_commissioner
+    name: Bridget Gainer
+    url: https://www.cookcountyil.gov/all-people/bridget-gainer
+    district:
+      layer: cook_county
+      number: 10
+
+  - office_id: county_commissioner
+    name: John P. Daley
+    url: https://www.cookcountyil.gov/all-people/john-daley
+    district:
+      layer: cook_county
+      number: 11
+
+  - office_id: county_commissioner
+    name: Bridget Degnen
+    url: https://www.cookcountyil.gov/all-people/bridget-degnen
+    district:
+      layer: cook_county
+      number: 12
+
+  - office_id: county_commissioner
+    name: Josina Morita
+    url: https://www.cookcountyil.gov/all-people/josina-morita
+    district:
+      layer: cook_county
+      number: 13
+
+  - office_id: county_commissioner
+    name: Scott R. Britton
+    url: https://www.cookcountyil.gov/all-people/scott-britton
+    district:
+      layer: cook_county
+      number: 14
+
+  - office_id: county_commissioner
+    name: Kevin B. Morrison
+    url: https://www.cookcountyil.gov/all-people/kevin-morrison
+    district:
+      layer: cook_county
+      number: 15
+
+  - office_id: county_commissioner
+    name: Frank J. Aguilar
+    url: https://www.cookcountyil.gov/all-people/frank-aguilar
+    district:
+      layer: cook_county
+      number: 16
+
+  - office_id: county_commissioner
+    name: Sean M. Morrison
+    url: https://www.cookcountyil.gov/all-people/sean-morrison
+    district:
+      layer: cook_county
+      number: 17
