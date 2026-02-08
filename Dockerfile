@@ -9,6 +9,10 @@ RUN npm install --no-audit --no-fund
 # Copy frontend source and data
 COPY frontend/ ./
 
+# Next.js inlines NEXT_PUBLIC_* at build time — Railway passes these as build args
+ARG NEXT_PUBLIC_PROTOMAPS_API_KEY
+ENV NEXT_PUBLIC_PROTOMAPS_API_KEY=$NEXT_PUBLIC_PROTOMAPS_API_KEY
+
 # Build Next.js
 RUN npm run build
 
