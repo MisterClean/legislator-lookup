@@ -619,17 +619,16 @@ export default function Home() {
             <span>◆</span>
           </div>
           <p className="text-xs font-body tracking-wide">
-            {APP_CONFIG.branding.orgName} - {APP_CONFIG.branding.footerBlurb}
+            Created by Michael McLean
           </p>
           <p className="text-xs font-body tracking-wide mt-2">
-            Maintained by{" "}
             <a
               href={APP_CONFIG.branding.attributionUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-accent-sky/70 hover:text-accent-sky transition-colors duration-150 underline underline-offset-2"
             >
-              {APP_CONFIG.branding.attributionName}
+              Deploy this app on your website
             </a>
           </p>
         </div>
